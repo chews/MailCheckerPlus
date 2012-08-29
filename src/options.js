@@ -77,6 +77,13 @@ function save_options() {
    delete localStorage["gc_poll"];
    delete localStorage["gc_dn_timeout"];
    delete localStorage["gc_accounts"];
+   
+   if (document.getElementById("enable_marketing").checked)
+   {
+     localStorage["mailcheckerplus.marketing"] = "true";
+   } else {
+     localStorage["mailcheckerplus.marketing"] = "false";
+   }
 
    localStorage["gc_poll"] = parseInt(document.getElementById("poll").value);
    localStorage["gc_dn_timeout"] = parseInt(document.getElementById("dn_timeout").value);
@@ -168,6 +175,20 @@ function restore_options() {
    if (localStorage["gc_open_label"] != null) {
       document.getElementById("open_label_" + localStorage["gc_open_label"]).selected = true;
    }
+
+   if (localStorage["mailcheckerplus.marketing"] != null)
+   {
+     if (localStorage["mailcheckerplus.marketing"]=="true")
+     {
+       document.getElementById("enable_marketing").checked = true;
+     } else {
+       document.getElementById("enable_marketing").checked = false;
+     }
+   } else {
+     document.getElementById("enable_marketing").checked = true;
+     localStorage["mailcheckerplus.marketing"] = "true";
+   }
+
 
    accounts = localStorage.getObject("gc_accounts");
    if (accounts == null) {

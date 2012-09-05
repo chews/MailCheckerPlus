@@ -28,11 +28,11 @@
            <tr>
 		   <td  style="padding: 0">
 			   <ul class="menu">
-				   <li><a href="javascript:showContent(0)" title="View general settings">General</a></li>
-				   <li><a href="javascript:showContent(1)" title="View notification settings">Notifications</a></li>
-				   <li><a href="javascript:showContent(2)" title="View account settings">Accounts</a></li>
-				   <li><a href="javascript:showContent(3)" title="View visual settings">Visual</a></li>
-				   <li><a href="javascript:showContent(4)" title="View extension icon settings">Icon</a></li>
+				   <li><a id="showContent0" title="View general settings">General</a></li>
+				   <li><a id="showContent1" title="View notification settings">Notifications</a></li>
+				   <li><a id="showContent2" title="View account settings">Accounts</a></li>
+				   <li><a id="showContent3" title="View visual settings">Visual</a></li>
+				   <li><a id="showContent4" title="View extension icon settings">Icon</a></li>
 			   </ul>
 			   <div id="content_0" class="content invisible">
 				   <h2>General settings</h2>
@@ -60,8 +60,8 @@
 				          <option id="sn_audio_1" value="ding.ogg">Ding</option>
 				          <option id="sn_audio_c" value="custom">Custom</option>
 				      </select>
-                  <a href="javascript:void(0);" onclick="playNotificationSound()" title="Play notification sound" style="border: 0"><img src="img/play.png" alt="Play" /></a>
-                  <br /><input type="file" id="sn_audio_src" accept="audio/wav, audio/x-wav, audio/mpeg, audio/vorbis, application/ogg" onchange="handleAudioFile(this.files)" />
+                  <a id="play-sound" title="Play notification sound" style="border: 0"><img src="img/play.png" alt="Play" /></a>
+                  <br /><input type="file" id="sn_audio_src" accept="audio/wav, audio/x-wav, audio/mpeg, audio/vorbis, application/ogg" />
                   <input type="hidden" id="sn_audio_enc" />
                </fieldset>
                <br />
@@ -87,7 +87,8 @@
 				   <h2>Account settings</h2>
 				   <p>
 					   <select id="accounts"></select><br />
-					   <a href="javascript:add_account()" title="Add a new account">Add</a> | <a href="javascript:remove_account()" title="Remove selected account">Remove</a>
+					   <a id="add_account" title="Add a new account">Add</a> |
+					   <a id="remove_account" title="Remove selected account">Remove</a>
 				   </p>
                <input type="checkbox" id="check_gmail_off" /> <label for="check_gmail_off">Turn off regular Gmail checking</label> <a title="Enable this setting if you don't have an account at gmail.com" style="cursor: help">?</a>
                <br />
@@ -162,7 +163,7 @@
        </table>
        <span class="left">
       </span>
-       <button id="submit" onclick="save_options()" style="width: 130px;height: 30px; float: right; margin-top: 4px;">Save &amp; Reload</button>
+       <button id="submit" style="width: 130px;height: 30px; float: right; margin-top: 4px;">Save &amp; Reload</button>
        </form>
    </div>
    </body>

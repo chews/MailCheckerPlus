@@ -1,5 +1,7 @@
 ﻿{
-   "background": [
+  "manifest_version": 2,
+   "background": {
+     "scripts": [
       "src/jquery-1.4.2.js",
       "src/encoder.js",
       "src/date.js",
@@ -9,7 +11,24 @@
       "src/define.js",
       "src/firstrun.js",
       "src/init.js"
-   ],
+    ]
+   },
+  "web_accessible_resources": [
+    "general.css",
+    "img/icon_48.png",
+    "img/information_big.png",
+    "img/play.png",
+    "src/background.js",
+    "src/date.js",
+    "src/define.js",
+    "src/encoder.js",
+    "src/firstrun.js",
+    "src/i18n.js",
+    "src/init.js",
+    "src/jquery-1.4.2.js",
+    "src/mailaccount.class.js",
+    "src/options.js"
+  ],
    "browser_action": {
       "default_icon": "icons/set1/not_logged_in.png",
       "default_title": "Mail Checker Plus for Google Mail™",

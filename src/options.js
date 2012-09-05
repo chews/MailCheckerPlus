@@ -426,5 +426,42 @@ function playNotificationSound() {
    }
 }
 
-// initialize options.html page.
-restore_options();
+$(document).ready(function(){
+  // Initialize options.html page.
+  restore_options();
+  // Play notification sound
+  $('#play-sound').click(function(){
+    playNotificationSound();
+  });
+  // Save options.
+  $('#submit').click(function(){
+    save_options();
+    return false;
+  });
+  // Handle file upload.
+  $('#sn_audio_src').change(function(){
+    handleAudioFile(this.files);
+  });
+  // Menu event handlers
+  $('#showContent0').click(function(){
+    showContent(0);
+  });
+  $('#showContent1').click(function(){
+    showContent(1);
+  });
+  $('#showContent2').click(function(){
+    showContent(2);
+  });
+  $('#showContent3').click(function(){
+    showContent(3);
+  });
+  $('#showContent4').click(function(){
+    showContent(4);
+  });
+  $('#add_account').click(function(){
+    add_account();
+  });
+  $('#remove_account').click(function(){
+    remove_account();
+  });
+});

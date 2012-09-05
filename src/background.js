@@ -145,14 +145,6 @@ chrome.extension.onRequest.addListener(
     }
 );
 
-function init() {
-   canvas = document.getElementById('canvas');
-   canvasContext = canvas.getContext('2d');
-   gfx = document.getElementById('gfx');
-
-   reloadSettings();
-}
-
 function reloadSettings() {
    unreadCount = 0;
 
@@ -168,7 +160,7 @@ function reloadSettings() {
    if (localStorage["gc_open_label"] == null ||
          localStorage["gc_check_label"] == null) {
          // Backwards compatability with previous checkboxes
-         delete localStorage["gc_open_label"];   
+         delete localStorage["gc_open_label"];
       if (localStorage["gc_check_all"] != null &&
             localStorage["gc_check_all"] == "true") {
          // Check all mail

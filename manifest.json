@@ -1,5 +1,15 @@
 ﻿{
-   "background_page": "background.html",
+   "background": [
+      "src/jquery-1.4.2.js",
+      "src/encoder.js",
+      "src/date.js",
+      "src/i18n.js",
+      "src/mailaccount.class.js",
+      "src/background.js",
+      "src/define.js",
+      "src/firstrun.js",
+      "src/init.js"
+   ],
    "browser_action": {
       "default_icon": "icons/set1/not_logged_in.png",
       "default_title": "Mail Checker Plus for Google Mail™",
@@ -7,7 +17,7 @@
       "popup": {
          "path": "popup.html"
       }
-   }, 
+   },
    "content_scripts": [ {
       "all_frames": true,
       "js": [ "src/mailto.js","src/define.js", "src/pluginstorage.js" ],

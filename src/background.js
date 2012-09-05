@@ -28,9 +28,9 @@ function startAnimate() {
    if (localStorage["gc_animate_off"] == null ||
         localStorage["gc_animate_off"] == "false") {
       stopAnimateLoop();
-      animTimer = setInterval("doAnimate()", animDelay);
-      setTimeout("stopAnimate()", 2000);
-      loopTimer = setTimeout("startAnimate()", 20000);
+      animTimer = setInterval(function(){doAnimate()}, animDelay);
+      setTimeout(function(){stopAnimate()}, 2000);
+      loopTimer = setTimeout(function(){startAnimate()}, 20000);
    }
 }
 
@@ -228,8 +228,6 @@ function reloadSettings() {
          success: function (data) {
             // Multiple accounts active
             var matches = data.match(/([\S]+?@[\S]+)/ig);
-            console.log(matches);
-
             if (matches != null && matches.length > 0) {
                for (var n = 0; n < matches.length; n++) {
                   var acc = new MailAccount({ accountNr: n });
@@ -277,7 +275,7 @@ function reloadSettings_complete() {
    gfx.src = "icons/" + iconSet + "/new" + iconFormat;
 
    // Start request loop
-   window.setTimeout(startRequest, 0);
+   window.setTimeout(function(){startRequest()}, 0);
 }
 
 // Sets the browser action icon
@@ -294,7 +292,7 @@ function setIcon(iconName) {
 function startRequest() {
    $.each(accounts, function (i, account) {
       if (account != null) {
-         window.setTimeout(account.startScheduler, 500 * i);
+         window.setTimeout(function(){account.startScheduler()}, 500 * i);
       }
    });
 }
@@ -339,10 +337,12 @@ function mailUpdate(_account) {
    }
 
    if (newUnreadCount > unreadCount) {
-      setTimeout('playSound()', 0);
-      setTimeout('startAnimate()', 0);
+      setTimeout(function(){playSound()}, 0);
+      setTimeout(function(){startAnimate()}, 0);
       if (accountWithNewestMail != null) {
-         setTimeout('notify(accountWithNewestMail)', 0);
+         setTimeout(function(){
+          notify(accountWithNewestMail);
+         }, 0);
       }
    }
    unreadCount = newUnreadCount;
@@ -388,7 +388,7 @@ function notify(accountWithNewestMail) {
          notification.show();
 
          if (timeout != 0) {
-            setTimeout(function () {
+            setTimeout(function() {
                notification.cancel();
             }, timeout);
          }
@@ -417,3 +417,15 @@ function getLabels(mailURL, callback) {
       }
    });
 }
+
+// Initialize background.js
+$(document).ready(function(){
+  canvas = document.createElement('canvas');
+  canvas.setAttribute('height', 19);
+  canvas.setAttribute('width', 19);
+  canvasContext = canvas.getContext('2d');
+  gfx = document.createElement('img');
+  gfx.setAttribute('height', 19);
+  gfx.setAttribute('width', 19);
+  reloadSettings();
+});

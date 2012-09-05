@@ -260,7 +260,7 @@ function reloadSettings() {
 
 function reloadSettings_complete() {
    if (localStorage["gc_accounts"] != null) {
-      var savedAccounts = eval(localStorage["gc_accounts"]);
+      var savedAccounts = JSON.parse(localStorage["gc_accounts"]);
       $.each(savedAccounts, function (i, savedAccount) {
          if (savedAccount.domain == null)
             return;

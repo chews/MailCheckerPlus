@@ -159,7 +159,7 @@ function getThread(accountId, mailid) {
 
    if (accountId != null) {
       window.setTimeout(mailAccounts[accountId].getThread(accountId, mailid, showBody), 0);
-      //		
+      //
       //		var mailElement = document.getElementById(mailid);
       //		if(mailElement != null) {
       //			var mailHeaderReadLink = document.getElementById(mailid + "_read-link");
@@ -168,7 +168,7 @@ function getThread(accountId, mailid) {
       //				mailHeaderReadLink.innerHTML = i18n.get('unreadLink');
       //				mailHeaderReadLink.title = i18n.get('unreadLinkTitle');
       //			}
-      //		}    
+      //		}
    }
 }
 
@@ -281,8 +281,8 @@ function hideMail(accountId, mailid, stayOpen) {
    if (unreadCount == 0) {
       accountElement.find('.toggleLink').hide('fast');
       accountElement.find('.unreadCount').fadeOut('fast');
-	
-	  if(!stayOpen) { 
+
+	  if(!stayOpen) {
          window.close();
 	  }
    } else {
@@ -306,10 +306,10 @@ function replyTextKeyPress(event, mailid) {
    }
 }
 
-function refreshMail() {   
+function refreshMail() {
    $.each(mailAccounts, function (i, account) {
       account.refreshInbox(function () {
-         renderAccount(account);         
+         renderAccount(account);
       });
    });
 }
@@ -376,10 +376,7 @@ function renderAccount(account) {
       account.unreadCount = account.getMail().length;
    }
 
-   var accountHtml = parseTemplate($("#AccountTemplate").html(), {
-      account: account,
-      i18n: i18n
-   });
+   var accountHtml = accountTemplate(account, i18n);
 
    // Add to page
    $(accountHtml).fadeIn("fast").appendTo("#content");
@@ -388,13 +385,9 @@ function renderAccount(account) {
    if (account.getMail() != null) {
       $.each(account.getMail(), function (j, mail) {
          allMail[mail.id] = mail;
-            
+
          // Render mail
-         var mailHtml = parseTemplate($("#MailTemplate").html(), {
-            account: account,
-            mail: mail,
-            i18n: i18n
-         });
+         var mailHtml = mailTemplate(mail, i18n);
 
          // Add to account element
          $(mailHtml).fadeIn("fast").appendTo(inboxElement);
@@ -423,7 +416,7 @@ function renderAccount(account) {
    inboxElement.find(".summary").click(function () { getThread(account.id, $(this).attr('mailId')); });
    inboxElement.find(".replyLink").click(function () { replyTo(account.id, $(this).attr('mailId')); });
    inboxElement.find(".openLink").click(function () { openMail(account.id, $(this).attr('mailId')); });
-      
+
    inboxElement.find(".starLink").click(function () {
       $(this).css('opacity', '1');
       starThread(account.id, $(this).attr('mailId'));

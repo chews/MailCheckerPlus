@@ -1,4 +1,5 @@
 ﻿{
+  "version": "1.2.3.7",
   "manifest_version": 2,
   "background": {
     "scripts": [
@@ -12,91 +13,47 @@
       "src/firstrun.js"
     ]
   },
-  "web_accessible_resources": [
-    "general.css",
-    "popup.css",
-    "icons/set1/new.png",
-    "icons/set1/no_new.png",
-    "icons/set1/not_logged_in.png",
-    "icons/set2/new.png",
-    "icons/set2/no_new.png",
-    "icons/set2/not_logged_in.png",
-    "icons/set3/new.png",
-    "icons/set3/no_new.png",
-    "icons/set3/not_logged_in.png",
-    "icons/set4/new.png",
-    "icons/set4/no_new.png",
-    "icons/set4/not_logged_in.png",
-    "icons/set5/new.png",
-    "icons/set5/no_new.png",
-    "icons/set5/not_logged_in.png",
-    "icons/set6/new.png",
-    "icons/set6/no_new.png",
-    "icons/set6/not_logged_in.png",
-    "icons/set7/new.png",
-    "icons/set7/no_new.png",
-    "icons/set7/not_logged_in.png",
-    "icons/set8/new.png",
-    "icons/set8/no_new.png",
-    "icons/set8/not_logged_in.png",
-    "icons/set9/new.png",
-    "icons/set9/no_new.png",
-    "icons/set9/not_logged_in.png",
-    "icons/set10/new.png",
-    "icons/set10/no_new.png",
-    "icons/set10/not_logged_in.png",
-    "icons/set11/new.png",
-    "icons/set11/no_new.png",
-    "icons/set11/not_logged_in.png",
-    "icons/set12/new.png",
-    "icons/set12/no_new.png",
-    "icons/set12/not_logged_in.png",
-    "img/icon_48.png",
-    "img/information_big.png",
-    "img/new.png",
-    "img/no_new.png",
-    "img/not_logged_in.png",
-    "img/play.png",
-    "src/background.js",
-    "src/date.js",
-    "src/define.js",
-    "src/encoder.js",
-    "src/firstrun.js",
-    "src/i18n.js",
-    "src/jquery-1.8.1.min.js",
-    "src/mailaccount.class.js",
-    "src/notify-template.js",
-    "src/notify.js",
-    "src/options.js",
-    "src/template-engine.js"
-  ],
-   "browser_action": {
-      "default_icon": "icons/set1/not_logged_in.png",
-      "default_title": "Mail Checker Plus for Google Mail™",
-      "name": "Mail Checker Plus for Google Mail™",
-      "popup": {
-         "path": "popup.html"
-      }
-   },
-   "content_scripts": [ {
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com https://www.google.com https://apis.google.com; object-src 'self'",
+  "web_accessible_resources": [],
+  "browser_action": {
+    "default_icon": "icons/set1/not_logged_in.png",
+    "default_title": "Mail Checker Plus for Google Mail™",
+    "name": "Mail Checker Plus for Google Mail™",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
       "all_frames": true,
-      "js": [ "src/mailto.js","src/define.js", "src/pluginstorage.js" ],
+      "js": [
+        "src/mailto.js",
+        "src/define.js",
+        "src/pluginstorage.js"
+      ],
       "run_at": "document_start",
-      "matches": [ "http://*/*", "https://*/*" ]
-	},{
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ]
+    },
+    {
       "all_frames": true,
-      "js": ["src/sitejs/youtube.js", "src/sitejs/yahoo.js" ],
-      "matches": [ "http://*/*"],
+      "js": [
+        "src/sitejs/youtube.js",
+        "src/sitejs/yahoo.js"
+      ],
+      "matches": ["http://*/*"],
       "run_at": "document_end"
-    }],
-   "description": "Displays the number of unread messages in your Gmail and Google Apps inbox. Preview mail, read, delete, archive and mark as spam!",
-   "icons": {
-        "32": "img/icon_32.png",
-        "48": "img/icon_48.png",
-        "128": "img/icon_128.png"
-   },
-   "name": "Mail Checker Plus for Google Mail™",
-   "options_page": "options.html",
-   "permissions": [ "notifications", "tabs", "http://*/*", "https://*/*", "http://*.google.com/*", "https://*.google.com/*" ],
-   "version": "1.2.3.7"
+    }
+  ],
+  "description": "Displays the number of unread messages in your Gmail and Google Apps inbox. Preview mail, read, delete, archive and mark as spam!",
+  "icons": {
+    "32": "img/icon_32.png",
+    "48": "img/icon_48.png",
+    "128": "img/icon_128.png"
+  },
+  "name": "Mail Checker Plus for Google Mail™",
+  "options_page": "options.html",
+  "permissions": [
+    "notifications", "tabs", "http://*/*", "https://*/*", "http://*.google.com/*", "https://*.google.com/*"
+  ]
 }

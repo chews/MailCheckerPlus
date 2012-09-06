@@ -13,11 +13,7 @@ $(document).ready(function () {
    var fullDateTime = mail.issued.toLocaleString();
    var datetime = formatDateTime(mail.issued, i18n.selected_lang.months);
 
-   var mailHtml = parseTemplate($("#MailTemplate").html(), {
-      account: mailAccount,
-      mail: mail,
-      i18n: i18n
-   });
+   var mailHtml = notifyTemplate(mailAccount, datetime, i18n, mail);
 
    $('body').append(mailHtml);
 

@@ -3,16 +3,12 @@
   "manifest_version": 2,
   "background": {
     "scripts": [
-      "src/jquery-1.8.1.min.js",
-      "src/ga.js",
-      "au/define.js",
-      "au/helpers.js",
-      "au/background.js",
-      "src/background.js",
-      "src/encoder.js",
-      "src/date.js",
-      "src/i18n.js",
-      "src/mailaccount.class.js"
+      "vendor/jquery-1.8.1.min.js",
+      "lib/background.js",
+      "lib/encoder.js",
+      "lib/date.js",
+      "locale/i18n.js",
+      "lib/mailaccount.class.js"
     ]
   },
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com https://www.google.com https://apis.google.com; object-src 'self'",
@@ -27,9 +23,9 @@
     {
       "all_frames": true,
       "js": [
-        "src/mailto.js",
-        "src/define.js",
-        "src/pluginstorage.js"
+        "lib/mailto.js",
+        "lib/define.js",
+        "lib/pluginstorage.js"
       ],
       "run_at": "document_start",
       "matches": [
@@ -40,8 +36,8 @@
     {
       "all_frames": true,
       "js": [
-        "src/sitejs/youtube.js",
-        "src/sitejs/yahoo.js"
+        "lib/sitejs/youtube.js",
+        "lib/sitejs/yahoo.js"
       ],
       "matches": ["http://*/*"],
       "run_at": "document_end"

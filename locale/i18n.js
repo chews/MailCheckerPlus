@@ -1,12 +1,12 @@
-﻿/*  
+﻿/*
     Mail Checker Plus for Google Mail™
-    - Localization file -   
+    - Localization file -
 */
 
-var languages = new Array();
+var languages = [];
 
 // Albanian
-languages["sq"] = {
+languages.sq = {
     "id" : "sq",
     "what" : "Shqip",
     "months" : new Array("jan", "shk", "mar", "pri", "maj", "qer", "kor", "gus", "sht", "tet", "nën", "dhj"),
@@ -35,10 +35,10 @@ languages["sq"] = {
 };
 
 // Arabic
-languages["ar"] = {
+languages.ar = {
     "id" : "ar",
-    "what" : "عربي (الأسماء السريانية للاشهر)ـ",    
-    "months" : new Array("كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول"),    
+    "what" : "عربي (الأسماء السريانية للاشهر)ـ",
+    "months" : new Array("كانون الثاني", "شباط", "آذار", "نيسان", "أيار", "حزيران", "تموز", "آب", "أيلول", "تشرين الأول", "تشرين الثاني", "كانون الأول"),
     "readLink" : "مقروءة",
     "readLinkTitle" : "تعليمها كمقروءة",
     "unreadLink": "غير مقروءة",
@@ -58,16 +58,16 @@ languages["ar"] = {
     "optionsLinkTitle" : "الإعدادات",
     "composeLinkTitle" : "إنشاء رسالة",
     "noUnreadText" : "لا يوجد رسائل غير مقروءة",
-    "oneUnreadText" : "رسالة غير مقروءة", 
+    "oneUnreadText" : "رسالة غير مقروءة",
     "severalUnreadText" : "رسائل غير مقروءة",
     "popupText" : "لديك رسائل جديدة!"
 };
 
 // Arabic Western
-languages["arw"] = {
+languages.arw = {
     "id" : "arw",
     "what" : "عربي",
-    "months" : new Array("يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"),    
+    "months" : new Array("يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"),
     "readLink" : "مقروءة",
     "readLinkTitle" : "تعليمها كمقروءة",
     "unreadLink": "غير مقروءة",
@@ -87,13 +87,13 @@ languages["arw"] = {
     "optionsLinkTitle" : "الإعدادات",
     "composeLinkTitle" : "إنشاء رسالة",
     "noUnreadText" : "لا يوجد رسائل غير مقروءة",
-    "oneUnreadText" : "رسالة غير مقروءة", 
+    "oneUnreadText" : "رسالة غير مقروءة",
     "severalUnreadText" : "رسائل غير مقروءة",
     "popupText" : "لديك رسائل جديدة!"
 };
 
 // Armenian
-languages["hy"] = {
+languages.hy = {
     "id" : "hy",
     "what" : "Հայերեն",
     "months" : new Array("հնվ", "փետ", "մրտ", "ապր", "մյս", "հնս", "հլս", "օգտ", "սեպ", "հկտ", "նոյ", "դեկ"),
@@ -122,7 +122,7 @@ languages["hy"] = {
 };
 
 // Azeri (Latin)
-languages["az"] = {
+languages.az = {
     "id" : "az",
     "what" : "Azərbaycanca",
     "months" : new Array("Yan", "Fev", "Mar", "Apr", "May", "Iyun", "Iyul", "Avg", "Sen", "Okt", "Noy", "Dek"),
@@ -151,7 +151,7 @@ languages["az"] = {
 };
 
 // Basque
-languages["eu"] = {
+languages.eu = {
     "id" : "eu",
     "what" : "Basque",
     "months" : new Array("urt", "ots", "mar", "api", "mai", "eka", "uzt", "abu", "ira", "urr", "aza", "abe"),
@@ -180,7 +180,7 @@ languages["eu"] = {
 };
 
 // Bosnian
-languages["bs"] = {
+languages.bs = {
     "id" : "bs",
     "what" : "Bosanski",
     "months" : new Array("jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec"),
@@ -209,7 +209,7 @@ languages["bs"] = {
 };
 
 // English
-languages["en"] = {
+languages.en = {
     "id" : "en",
     "what" : "English",
     "months" : new Array("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"),
@@ -239,7 +239,7 @@ languages["en"] = {
 };
 
 // Esperanto
-languages["eo"] = {
+languages.eo = {
     "id" : "eo",
     "what" : "Esperanto",
     "months" : new Array("jan", "feb", "mar", "apr", "maj", "jun", "jul", "aŭg", "sep", "okt", "nov", "dec"),
@@ -268,7 +268,7 @@ languages["eo"] = {
 };
 
 // Estonian
-languages["et"] = {
+languages.et = {
     "id" : "et",
     "what" : "Eesti keel",
     "months" : new Array("jaan", "veeb", "märts", "apr", "mai", "juun", "juul", "aug", "sep", "okt", "nov", "dets"),
@@ -297,7 +297,7 @@ languages["et"] = {
 };
 
 // Euskara
-languages["eu"] = {
+languages.eu = {
     "id" : "eu",
     "what" : "Euskara",
     "months" : new Array("urt", "ots", "mar", "api", "mai", "eka", "uzt", "abu", "ira", "urr", "aza", "abe"),
@@ -325,7 +325,7 @@ languages["eu"] = {
 };
 
 // French - Français
-languages["fr"] = {
+languages.fr = {
     "id" : "fr",
     "what" : "Français",
     "months" : new Array("jan", "fev", "mar", "avr", "mai", "jun", "jul", "aoû", "sep", "oct", "nov", "dec"),
@@ -354,7 +354,7 @@ languages["fr"] = {
 };
 
 // German
-languages["de"] = {
+languages.de = {
     "id" : "de",
     "what" : "Deutsch",
     "months" : new Array("Jan", "Feb", "Mar", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"),
@@ -383,7 +383,7 @@ languages["de"] = {
 };
 
 // Hebrew
-languages["he"] = {
+languages.he = {
     "id" : "he",
     "what" : "עברית",
     "months" : new Array("'דצמ'", "נוב'", "אוקט'", "ספט'", "אוג'", "יולי", "יוני", "מאי", "אפר'", "מרץ", "פבר'", "ינו"),
@@ -412,7 +412,7 @@ languages["he"] = {
 };
 
 // Hungarian
-languages["hu"] = {
+languages.hu = {
     "id" : "hu",
     "what" : "Magyar",
     "months" : new Array("jan", "feb", "már", "ápr", "máj", "jún", "júl", "aug", "szept", "okt", "nov", "dec"),
@@ -441,7 +441,7 @@ languages["hu"] = {
 };
 
 // Italian
-languages["it"] = {
+languages.it = {
     "id" : "it",
     "what" : "Italiano",
     "months" : new Array("gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic"),
@@ -470,7 +470,7 @@ languages["it"] = {
 };
 
 // Latvian
-languages["lv"] = {
+languages.lv = {
     "id" : "lv",
     "what" : "Latviešu",
     "months" : new Array("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"),
@@ -499,7 +499,7 @@ languages["lv"] = {
 };
 
 // Mongolian
-languages["mn"] = {
+languages.mn = {
     "id" : "mn",
     "what" : "Монгол",
     "months" : new Array("1-сар", "2-сар", "3-сар", "4-сар", "5-сар", "6-сар", "7-сар", "8-сар", "9-сар", "10-сар", "11-сар", "12-сар"),
@@ -528,7 +528,7 @@ languages["mn"] = {
 };
 
 // Polish
-languages["pl"] = {
+languages.pl = {
     "id" : "pl",
     "what" : "Polski",
     "months" : new Array("Sty", "Lut", "Mar", "Kwi", "Maj", "Cze", "Lip", "Sie", "Wrz", "Paź", "Lis", "Gru"),
@@ -557,7 +557,7 @@ languages["pl"] = {
 };
 
 // Russian
-languages["ru"] = {
+languages.ru = {
     "id" : "ru",
     "what" : "Русский",
     "months" : new Array("янв", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"),
@@ -586,7 +586,7 @@ languages["ru"] = {
 };
 
 // Serbian Cyrillic
-languages["sr"] = {
+languages.sr = {
     "id" : "sr",
     "what" : "Српски ћирилица",
     "months" : new Array("јан", "феб", "мар", "апр", "мај", "јун", "јул", "авг", "сеп", "окт", "нов", "дец"),
@@ -615,7 +615,7 @@ languages["sr"] = {
 };
 
 // Serbian Latin
-languages["srl"] = {
+languages.srl = {
     "id" : "srl",
     "what" : "Srpski latinica",
     "months" : new Array("jan", "feb", "mar", "apr", "maj", "jun", "jul", "avg", "sep", "okt", "nov", "dec"),
@@ -644,7 +644,7 @@ languages["srl"] = {
 };
 
 // Slovenian
-languages["sl"] = {
+languages.sl = {
     "id" : "sl",
     "what" : "Slovenščina",
     "months" : new Array("jan", "feb", "mar", "apr", "maj", "jun", "jul", "avg", "sep", "okt", "nov", "dec"),
@@ -673,7 +673,7 @@ languages["sl"] = {
 };
 
 // Spanish
-languages["es"] = {
+languages.es = {
     "id" : "es",
     "what" : "Español",
     "months" : new Array("ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"),
@@ -702,7 +702,7 @@ languages["es"] = {
 };
 
 // Swedish
-languages["sv"] = {
+languages.sv = {
     "id" : "sv",
     "what" : "Svenska",
     "months" : new Array("jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec"),
@@ -723,7 +723,7 @@ languages["sv"] = {
     "fullLinkTitle" : "Visa hela mailet",
     "refreshLinkTitle" : "Uppdatera alla mailboxar",
     "optionsLinkTitle" : "Gå till inställningssidan",
-    "composeLinkTitle" : "Skapa nytt mail",  
+    "composeLinkTitle" : "Skapa nytt mail",
     "noUnreadText" : "Inga olästa mail",
     "sendPageLinkTitle" : "Skicka länk till sidan",
     "oneUnreadText" : "oläst mail", // One unread item: "1 unread mail"
@@ -732,7 +732,7 @@ languages["sv"] = {
 };
 
 // Turkish - Türkçe
-languages["tr"] = {
+languages.tr = {
     "id" : "tr",
     "what" : "Türkçe",
     "months" : new Array("Oca", "Sub", "Mar", "Nis", "May", "Haz", "Tem", "Agu", "Eyl", "Eki", "Kas", "Ara"),
@@ -761,7 +761,7 @@ languages["tr"] = {
 };
 
 // Finnish
-languages["fi"] = {
+languages.fi = {
     "id" : "fi",
     "what" : "Suomi",
     "months" : new Array("tammi", "helmi", "maalis", "huhti", "touko", "kesä", "heinä", "elo", "syys", "loka", "marras", "joulu"),
@@ -848,7 +848,7 @@ languages["pt-PT"] = {
 };
 
 // Romanian
-languages["ro"] = {
+languages.ro = {
     "id" : "ro",
     "what" : "Română",
     "months" : new Array("ian", "feb", "mar", "apr", "mai", "iun", "iul", "aug", "sep", "oct", "noi", "dec"),
@@ -877,7 +877,7 @@ languages["ro"] = {
 };
 
 // Lao
-languages["lo"] = {
+languages.lo = {
     "id" : "lo",
     "what" : "ພາສາລາວ",
     "months" : new Array("ມ.ກ", "ກ.ພ", "ມ.ນ", "ມ.ສ", "ພ.ພ", "ມ.ຖ", "ກ.ດ", "ສ.ຫ", "ກ.ຍ", "ຕ.ລ", "ພ.ຈ", "ທ.ວ"),
@@ -935,7 +935,7 @@ languages["zh-TW"] = {
 };
 
 // Georgian
-languages["geo"] = {
+languages.geo = {
     "id" : "geo",
     "what" : "ქართული",
     "months" : new Array("იან", "თებ", "მარ", "აპრ", "მაი", "ივნ", "ივლl", "აგვ", "სექ", "ოქტ", "ნოემ", "დეკ"),
@@ -964,7 +964,7 @@ languages["geo"] = {
 };
 
 // Welsh
-languages["cy"] = {
+languages.cy = {
     "id" : "cy",
     "what" : "Welsh",
     "months" : new Array("ion.", "chwef.", "maw.", "ebr.", "mai.", "meh.", "gorff.", "awst.", "medi.", "hyd.", "tach.", "rhag."),
@@ -993,7 +993,7 @@ languages["cy"] = {
 };
 
 // Icelandic
-languages["is"] = {
+languages.is = {
     "id" : "is",
     "what" : "Íslenska",
     "months" : new Array("jan.", "feb.", "mars", "apr.", "maí", "jún.", "júl.", "ágús.", "sept.", "okt.", "nóv.", "des."),
@@ -1022,7 +1022,7 @@ languages["is"] = {
 };
 
 // Hindi - हिंदी
-languages["hi"] = {
+languages.hi = {
     "id" : "hi",
     "what" : "हिंदी",
     "months" : new Array("जन","फर", "मार्च", "अप्रैल", "मे", "जून", "जूलै", "अगु", "सेप", "अक्टो", "नवे", "दिसं"),
@@ -1051,7 +1051,7 @@ languages["hi"] = {
 };
 
 //Telugu - తెలుగు
-languages["te"] = {
+languages.te = {
     "id" : "te",
     "what" : "తెలుగు",
     "months" : new Array("జానూ", "ఫెబ్రు", "మార్చ్", "ఏప్రిల్", "మే", "జూన్", "జూలై", "ఆగుస్ట్", "సేప్", "అక్టో", "నావెం", "డిసెం"),
@@ -1079,8 +1079,8 @@ languages["te"] = {
     "popupText" : "కొత్త మెయిల్ వచ్చినది"
 };
 
-// Bulgarian 
-languages["bg"] = {
+// Bulgarian
+languages.bg = {
     "id" : "bg",
     "what" : "Български",
     "months" : new Array("яну", "фев", "мар", "апр", "май", "юни", "юли", "авг", "сеп", "окт", "ное", "дек"),
@@ -1109,7 +1109,7 @@ languages["bg"] = {
 };
 
 // Greek
-languages["el"] = {
+languages.el = {
     "id" : "el",
     "what" : "Ελληνικά",
     "months" : new Array("ιαν", "φεβ", "μαρ", "απρ", "μαι", "ιουν", "ιουλ", "αυγ", "σεπ", "οκτ", "νοε", "δεκ"),
@@ -1167,7 +1167,7 @@ languages["zh-CN"] = {
 };
 
 // Afrikaans
-languages["af"] = {
+languages.af = {
     "id" : "af",
     "what" : "Afrikaans",
     "months" : new Array("jan", "feb", "mrt", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "des"),
@@ -1196,7 +1196,7 @@ languages["af"] = {
 };
 
 // Kannada = ಕನ್ನಡ
-languages["kn"] = {
+languages.kn = {
     "id" : "kn",
     "what" : "ಕನ್ನಡ",
     "months" : new Array("ಜನವರಿ", "ಫೆಬ್ರವರಿ", "ಮಾರ್ಚ್", "ಎಪ್ರಿಲ್", "ಮೇ", "ಜೂನ್", "ಜುಲೈ", "ಆಗಸ್ಟ್", "ಸೆಪ್ಟೆಂಬರ್", "ಆಕ್ಟೋಬರ್", "ನವೆಂಬರ್", "ಡಿಸೆಂಬರ್"),
@@ -1225,7 +1225,7 @@ languages["kn"] = {
 };
 
 // Ukrainian
-languages["uk"] = {
+languages.uk = {
     "id" : "uk",
     "what" : "Українська",
     "months" : new Array("січ", "лют", "бер", "кві", "тра", "чер", "лип", "сер", "вер", "жов", "лис", "гру"),
@@ -1253,10 +1253,10 @@ languages["uk"] = {
     "popupText" : "Отакої! Прийшов новий лист!"
 };
 
-// Bengali 
-languages["ba"] = {
+// Bengali
+languages.ba = {
      "id" : "ba",
-     "what" : "Bengali", 
+     "what" : "Bengali",
      "months" : new Array("জানুয়ারি", "ফেব্রুয়ারি", "মার্চ", "এপ্রিল", "মে", "জুন", "জুলাই", "আগষ্ট", "সেপ্টেম্বর ", "অক্টোবর", "নভেম্বর", "ডিসেম্বর"),
      "readLink" : "পড়ুন",
      "readLinkTitle" : "পঠিত হিসেবে চিহ্নিত করুন",
@@ -1283,7 +1283,7 @@ languages["ba"] = {
 };
 
 // Korean
-languages["ko"] = {
+languages.ko = {
     "id" : "ko",
     "what" : "한국어",
     "months" : new Array("1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"),
@@ -1312,7 +1312,7 @@ languages["ko"] = {
 };
 
 // Lithuanian
-languages["lt"] = {
+languages.lt = {
     "id" : "lt",
     "what" : "Lietuviškai",
     "months" : new Array("sau", "vas", "kov", "bal", "geg", "bir", "lie", "rugp", "rugs", "spa", "lap", "gru"),
@@ -1341,7 +1341,7 @@ languages["lt"] = {
 };
 
 // Czech
-languages["cs"] = {
+languages.cs = {
     "id" : "cs",
     "what" : "Čeština",
     "months" : new Array("led", "úno", "bře", "dub", "kvě", "čen", "čec", "srp", "zář", "říj", "lis", "pro"),
@@ -1370,7 +1370,7 @@ languages["cs"] = {
 };
 
 // Bahasa Indonesia
-languages["id"] = {
+languages.id = {
     "id" : "id",
     "what" : "Bahasa Indonesia",
     "months" : new Array("jan", "feb", "mar", "apr", "mei", "jun", "jul", "agu", "sep", "okt", "nov", "des"),
@@ -1399,7 +1399,7 @@ languages["id"] = {
 };
 
 // Japanese
-languages["ja"] = {
+languages.ja = {
     "id" : "ja",
     "what" : "日本語",
     "months" : new Array("一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"),
@@ -1428,7 +1428,7 @@ languages["ja"] = {
 };
 
 // Catalan
-languages["ca"] = {
+languages.ca = {
     "id" : "ca",
     "what" : "Català",
     "months" : new Array("gen", "feb", "mar", "abr", "mai", "jun", "jul", "ago", "set", "oct", "nov", "des"),
@@ -1457,7 +1457,7 @@ languages["ca"] = {
 };
 
 // Vietnamese
-languages["vi"] = {
+languages.vi = {
     "id" : "vi",
     "what" : "Tiếng Việt",
     "months" : new Array("tháng 1", "tháng 2", "tháng 3", "tháng 4", "tháng 5", "tháng 6", "tháng 7", "tháng 8", "tháng 9", "tháng 10", "tháng 11", "tháng 12"),
@@ -1486,7 +1486,7 @@ languages["vi"] = {
 };
 
 // Norwegian
-languages["no"] = {
+languages.no = {
     "id" : "no",
     "what" : "Norsk",
     "months" : new Array("jan", "feb", "mar", "apr", "mai", "jun", "jul", "aug", "sep", "okt", "nov", "des"),
@@ -1515,7 +1515,7 @@ languages["no"] = {
 };
 
 // Galician
-languages["gl"] = {
+languages.gl = {
     "id" : "gl",
     "what" : "Galego",
     "months" : new Array("xan", "feb", "mar", "abr", "mai", "xun", "xul", "ago", "set", "out", "nov", "nad"),
@@ -1544,7 +1544,7 @@ languages["gl"] = {
 };
 
 // Macedonian
-languages["mk"] = {
+languages.mk = {
     "id" : "mk",
     "what" : "Македонски",
     "months" : new Array("јан", "фев", "март", "април", "мај", "јун", "јул", "авг", "сеп", "окт", "ное", "дек"),
@@ -1573,7 +1573,7 @@ languages["mk"] = {
 };
 
 // Thai
-languages["th"] = {
+languages.th = {
     "id" : "th",
     "what" : "Thai",
     "months" : new Array("ม.ค.", "ก.พ.", "มี.ค.", "เม.ย.", "พ.ค.", "มิ.ย.", "ก.ค.", "ส.ค.", "ก.ย.", "ต.ค.", "พ.ย.", "ธ.ค."),
@@ -1602,7 +1602,7 @@ languages["th"] = {
 };
 
 // Dutch
-languages["nl"] = {
+languages.nl = {
     "id" : "nl",
     "what" : "Nederlands",
     "months" : new Array("jan", "feb", "mar", "apr", "mei", "jun", "jul", "aug", "sep", "okt", "nov", "dec"),
@@ -1631,7 +1631,7 @@ languages["nl"] = {
 };
 
 // Danish
-languages["dk"] = {
+languages.dk = {
     "id" : "dk",
     "what" : "Dansk",
     "months" : new Array("jan", "feb", "mar", "apr", "maj", "jun", "jul", "aug", "sep", "okt", "nov", "dec"),
@@ -1660,7 +1660,7 @@ languages["dk"] = {
 };
 
 // Persian
-languages["fa"] = {
+languages.fa = {
     "id" : "fa",
     "what" : "فارسی",
     "months" : new Array("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"),
@@ -1688,9 +1688,8 @@ languages["fa"] = {
     "popupText" : "شما یک پیام جدید دریافت کردید"
 };
 
-
 // Croatian
-languages["hr"] = {
+languages.hr = {
     "id" : "hr",
     "what" : "Hrvatski",
     "months" : new Array("sij", "vel", "ožu", "tra", "svi", "lip", "srp", "kol", "ruj", "lis", "stu", "pro"),
@@ -1719,7 +1718,7 @@ languages["hr"] = {
 };
 
 // Slovak
-languages["sk"] = {
+languages.sk = {
     "id" : "sk",
     "what" : "Slovenčina",
     "months" : new Array("jan", "feb", "mar", "apr", "máj", "jún", "júl", "aug", "sep", "okt", "nov", "dec"),
@@ -1748,7 +1747,7 @@ languages["sk"] = {
 };
 
 // Urdu
-languages["urd"] = {
+languages.urd = {
     "id" : "urd",
     "what" : "اردو",
     "months" : new Array("جنوری", "فروری", "مارچ", "اپریل", "مئ", "جون", "جولائی", "اگست", "سپتمبر", "اکتوبر", "نومبر", "دسمبر"),
@@ -1777,7 +1776,7 @@ languages["urd"] = {
 };
 
 // Sinhala
-languages["si"] = {
+languages.si = {
     "id" : "si",
     "what" : "සිංහල",
     "months" : new Array("ජනවාරි", "පෙබරවාරි", "මාර්තු", "අප්රේල්", "මැයි", "ජූනි", "ජූලි", "අගෝස්තු", "සැප්තැම්බර්", "ඔක්තෝබර්", "නොවැම්බර්", "දෙසැම්බර්"),
@@ -1806,7 +1805,7 @@ languages["si"] = {
 };
 
 // Uzbek
-languages["uz"] = {
+languages.uz = {
     "id" : "uz",
     "what" : "O'zbekcha",
     "months" : new Array("yan", "fev", "mar", "apr", "may", "yun", "yul", "avg", "sen", "okt", "noy", "dek"),
@@ -1834,29 +1833,25 @@ languages["uz"] = {
     "popupText" : "Yangi xat keldi!"
 };
 
-if(localStorage["gc_language"] == null) {
-    localStorage["gc_language"] = "en";
+if(localStorage.gc_language == null) {
+    localStorage.gc_language = "en";
 }
 
 function get_lang_string(name)
 {
-	if ( this.selected_lang[name] == null)
-	{
-		return this.default_lang[name];	
-	}
-	else
-	{
+	if ( this.selected_lang[name] == null) {
+		return this.default_lang[name];
+	} else {
 		return this.selected_lang[name];
 	}
-
 }
 
-i18n = new Object();
-i18n.selected_lang = languages[localStorage["gc_language"]];
-i18n.default_lang = languages['en']; // Fall back to English if there is no translation
+i18n = {};
+i18n.selected_lang = languages[localStorage.gc_language];
+i18n.default_lang = languages.en; // Fall back to English if there is no translation
 i18n.get = get_lang_string;
 
 function reloadLanguage() {
-    i18n.selected_lang = languages[localStorage["gc_language"]];
-	i18n.default_lang = languages['en']; // Fall back to English if there is no translation
+    i18n.selected_lang = languages[localStorage.gc_language];
+	i18n.default_lang = languages.en; // Fall back to English if there is no translation
 }

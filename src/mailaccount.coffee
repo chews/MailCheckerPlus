@@ -1,78 +1,3 @@
-{
-  "type": "block",
-  "src": "{",
-  "value": "{",
-  "lineno": 293,
-  "children": [],
-  "varDecls": [],
-  "labels": {
-    "table": {},
-    "size": 0
-  },
-  "functions": [],
-  "nonfunctions": [],
-  "transformed": true
-}
-{
-  "type": "block",
-  "src": "{",
-  "value": "{",
-  "lineno": 324,
-  "children": [],
-  "varDecls": [],
-  "labels": {
-    "table": {},
-    "size": 0
-  },
-  "functions": [],
-  "nonfunctions": [],
-  "transformed": true
-}
-{
-  "type": "block",
-  "src": "{",
-  "value": "{",
-  "lineno": 442,
-  "children": [],
-  "varDecls": [],
-  "labels": {
-    "table": {},
-    "size": 0
-  },
-  "functions": [],
-  "nonfunctions": [],
-  "transformed": true
-}
-{
-  "type": "block",
-  "src": "{",
-  "value": "{",
-  "lineno": 442,
-  "children": [],
-  "varDecls": [],
-  "labels": {
-    "table": {},
-    "size": 0
-  },
-  "functions": [],
-  "nonfunctions": [],
-  "transformed": true
-}
-{
-  "type": "block",
-  "src": "{",
-  "value": "{",
-  "lineno": 474,
-  "children": [],
-  "varDecls": [],
-  "labels": {
-    "table": {},
-    "size": 0
-  },
-  "functions": [],
-  "nonfunctions": [],
-  "transformed": true
-}
 #/ <reference path="chrome-api-vsdoc.js" />
 #/ <reference path="jquery-1.4.2.js" />
 #/ <reference path="encoder.js" />
@@ -486,7 +411,7 @@ MailAccount = (settingsObj) ->
     logToConsole "stopping scheduler..."
     isStopped = true
     window.clearTimeout requestTimer  if requestTimer?
-    delete that
+    
 
   @openInbox = ->
     logToConsole "Opening inbox"

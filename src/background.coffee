@@ -79,10 +79,9 @@ reloadSettings = ->
   if accounts?
     $.each accounts, (i, account) ->
       account.stopScheduler()
-      account = null
-      delete account
+    accounts = []    
 
-  accounts = new Array()
+  accounts = []
   profilePhotos = {}
   chrome.browserAction.setBadgeText text: "..."
   chrome.browserAction.setTitle title: "Polling accounts..."

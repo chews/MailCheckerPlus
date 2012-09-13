@@ -212,7 +212,7 @@ mailUpdate = (_account) ->
     setTimeout startAnimate, 0
 
     if accountWithNewestMail?
-      setTimeout notify accountWithNewestMail, 0
+      setTimeout notify, 0
   unreadCount = newUnreadCount
 
 # Called when an account has experienced an error
@@ -235,8 +235,8 @@ playSound = ->
     audioElement.src = source
     audioElement.load()
     audioElement.play()
-  catch e
-    console.error e
+  catch err
+    console.error err
 
 # Displays a notification popup
 notify = ->
@@ -247,8 +247,8 @@ notify = ->
       notification.show()
       if timeout isnt 0
         setTimeout notification.cancel, timeout
-    catch e
-      console.error e
+    catch err
+      console.error err
 
 getLabels = (mailURL, callback) ->
   getURL = mailURL + "h/" + Math.ceil(1000000 * Math.random()) + "/?v=prl"

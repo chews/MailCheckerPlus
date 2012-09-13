@@ -10,7 +10,7 @@
 #*********************************
 
 # Debug output (if enabled, might cause memory leaks)
-verbose = true
+verbose = false
 
 # logging function
 log = (text) ->

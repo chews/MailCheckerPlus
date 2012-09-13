@@ -73,7 +73,7 @@ migrateSettings = ->
     else
       # Default settings (inbox)
       localStorage.gc_check_label = ""
-      localStorage.gc_open_label = "#inbox"  
+      localStorage.gc_open_label = "#inbox"
 
 reloadSettings = ->
   unreadCount = 0
@@ -118,23 +118,24 @@ reloadSettings = ->
     $.ajax
       url: "https://www.google.com/accounts/AddSession"
 
-      success: (data) ->        
+      success: (data) ->
         # Multiple accounts active
-        if matches = data.match(/([\S]+?@[\S]+)/g)
-          for match, n in matches
-            acc = new MailAccount(accountNr: n)
-            acc.onError = mailError
-            acc.onUpdate = mailUpdate
-            accounts.push acc
+        if matches = data.match /([\S]+?@[\S]+)/g
+          for match, idx in matches
+            account = new MailAccount
+              accountNr: idx
+            account.onError = mailError
+            account.onUpdate = mailUpdate
+            accounts.push account
         reloadSettings_complete()
 
-      complete: ->  
-        if accounts.length is 0        
+      complete: ->
+        if accounts.length is 0
           # No multiple accounts - just check default Gmail
-          acc = new MailAccount({})
-          acc.onError = mailError
-          acc.onUpdate = mailUpdate
-          accounts.push acc
+          account = new MailAccount()
+          account.onError = mailError
+          account.onUpdate = mailUpdate
+          accounts.push account
           reloadSettings_complete()
   else
     reloadSettings_complete()
@@ -142,15 +143,15 @@ reloadSettings = ->
 reloadSettings_complete = ->
   if localStorage.gc_accounts?
     savedAccounts = JSON.parse(localStorage.gc_accounts)
-    for savedAccount in savedAccounts
-      return unless savedAccount.domain?
-      acc = new MailAccount(domain: savedAccount.domain)
-      acc.onError = mailError
-      acc.onUpdate = mailUpdate
-      accounts.push acc
+    for account in savedAccounts
+      return unless account.domain?
+      account = new MailAccount(domain: account.domain)
+      account.onError = mailError
+      account.onUpdate = mailUpdate
+      accounts.push account
   stopAnimateLoop()
-  gfx.src = "icons/" + iconSet + "/new" + iconFormat
-  
+  gfx.src = "icons/#{iconSet}/new#{iconFormat}"
+
   # Start request loop
   window.setTimeout startRequest, 0
 
@@ -197,7 +198,7 @@ mailUpdate = (_account) ->
 
       if i18n.get("oneUnreadText")
         unreadText = i18n.get "oneUnreadText"
-      else 
+      else
         unreadText = i18n.get "severalUnreadText"
 
       chrome.browserAction.setTitle title: newUnreadCount + " " + unreadText
@@ -262,7 +263,7 @@ getLabels = (mailURL, callback) ->
 
       if callback?
         setTimeout callback(labelArray), 0
-  
+
 chrome.extension.onRequest.addListener (request, sender, sendResponse) ->
   openInTab = localStorage.gc_open_tabs
   disableMailTo = localStorage.gc_no_mailto

@@ -1,3 +1,4 @@
+mailAccount = undefined
 
 # Opens a mail and closes this window
 openMail = ->
@@ -31,7 +32,7 @@ starMail = ->
 # Star mail
 openInbox = ->
   mailAccount.openInbox()
-mailAccount = undefined
+
 $(document).ready ->
   backgroundPage = chrome.extension.getBackgroundPage()
   mailAccount = backgroundPage.accountWithNewestMail

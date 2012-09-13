@@ -120,7 +120,7 @@ reloadSettings = ->
 
       success: (data) ->
         # Multiple accounts active
-        if matches = data.match /([\S]+?@[\S]+)/g
+        if matches = data.match /([\S]+?@[\S]+)/gi
           for match, idx in matches
             account = new MailAccount
               accountNr: idx
@@ -165,9 +165,9 @@ setIcon = (iconName) ->
 
 # Request loop starter
 startRequest = ->
-  for account in accounts
+  for account, idx in accounts
     if account?
-      window.setTimeout account.startScheduler, 500 * i
+      window.setTimeout account.startScheduler, 500 * idx
 
 # Called when an account has received a mail update
 mailUpdate = (_account) ->

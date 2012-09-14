@@ -43,7 +43,9 @@ $(document).ready ->
   fullDateTime = mail.issued.toLocaleString()
   datetime = formatDateTime(mail.issued, i18n.selected_lang.months)
   mailHtml = notifyTemplate(mailAccount, datetime, i18n, mail)
+
   $("body").append mailHtml
+
   $("body").hover (->
     $(this).find(".hiddenSummaryActions").fadeIn "fast"
   ), ->
@@ -70,5 +72,3 @@ $(document).ready ->
   $("body").find(".starLink").click ->
     $(this).css "opacity", "1"
     starMail()
-
-

@@ -2,16 +2,36 @@
 #/ <reference path="chrome-api-vsdoc.js" />
 #/ <reference path="encoder.js" />
 
-#var mailArray = mailAccount.getMail();
+backgroundPage = chrome.extension.getBackgroundPage()
+mailAccounts = backgroundPage.accounts
+mailCount = 0
+mailCache = []
+allMail = undefined
+scrollbar = undefined
+unreadCount = 0
+allMail = []
 
-# Preview setting set to "Always off" =
-# Go to first mail inbox with unread items
+$.each mailAccounts, (i, account) ->
+  unreadCount += account.getUnreadCount()
 
-# Preview setting set to "Automatic" + no unread mail =
-# Go to first mail inbox
+previewSetting = localStorage.gc_preview_setting
+
+if previewSetting is "0"
+  # Preview setting set to "Always off" =
+  # Go to first mail inbox with unread items
+  openInbox 0
+else if previewSetting is "1" and unreadCount is 0
+  # Preview setting set to "Automatic" + no unread mail =
+  # Go to first mail inbox
+  openInbox 0
+
+animationSpeed = 250
+previousHeight = undefined
+
 hideElement = (id) ->
   element = document.getElementById(id)
   element.style.display = "none"  if element?
+
 showElement = (id) ->
   element = document.getElementById(id)
   element.style.display = "inline"  if element?
@@ -24,12 +44,12 @@ openMail = (accountId, mailid) ->
 openInbox = (accountId) ->
   unless accountId?
     accountId = 0
-    
+
     # Open first inbox with unread items
-    $.each mailAccounts, (i, account) ->
+    for account in mailAccounts
       if account.getUnreadCount() > 0
         accountId = account.id
-        false
+        return false
 
   if not mailAccounts? or not mailAccounts[accountId]?
     console.error "No mailaccount(s) found with account id " + accountId
@@ -37,13 +57,10 @@ openInbox = (accountId) ->
   mailAccounts[accountId].openInbox()
   window.close()
 
-#function openUnread(accountId) {
-#   mailAccounts[accountId].openUnread();
-#   window.close();
-#}
 composeNew = (accountId) ->
   mailAccounts[accountId].composeNew()
   window.close()
+
 sendPage = (accountId) ->
   chrome.tabs.getSelected null, (tab) ->
     mailAccounts[accountId].sendPage tab
@@ -52,6 +69,7 @@ sendPage = (accountId) ->
 readThread = (accountId, mailid, stayOpen) ->
   hideMail accountId, mailid, stayOpen
   mailAccounts[accountId].readThread mailid
+
 unreadThread = (accountId, mailid) ->
   mailAccounts[accountId].unreadThread mailid
   mailElement = document.getElementById(mailid)
@@ -61,19 +79,25 @@ unreadThread = (accountId, mailid) ->
       mailHeaderReadLink.href = "javascript:readThread('" + accountId + "', '" + mailid + "');"
       mailHeaderReadLink.innerHTML = i18n.get("readLink")
       mailHeaderReadLink.title = i18n.get("readLinkTitle")
+
 archiveThread = (accountId, mailid) ->
   hideMail accountId, mailid
   mailAccounts[accountId].archiveThread mailid
+
 deleteThread = (accountId, mailid) ->
   hideMail accountId, mailid
   mailAccounts[accountId].deleteThread mailid
+
 spamThread = (accountId, mailid) ->
   hideMail accountId, mailid
   mailAccounts[accountId].spamThread mailid
+
 starThread = (accountId, mailid) ->
   mailAccounts[accountId].starThread mailid
+
 replyTo = (accountId, mailid) ->
   mailAccounts[accountId].replyTo allMail[mailid]
+
 showReply = (mailid) ->
   replyBox = document.getElementById(mailid + "_reply")
 
@@ -91,27 +115,16 @@ sendReply = (mailid) ->
     body: replyText
 
 getThread = (accountId, mailid) ->
-  markAsRead = (localStorage["gc_showfull_read"]? and localStorage["gc_showfull_read"] is "true")
+  markAsRead = (localStorage.gc_showfull_read? and localStorage.gc_showfull_read is "true")
   readThread accountId, mailid, true  if markAsRead
   if mailCache[mailid]?
-    
+
     # Mail already fetched, read from cache instead
     showBody accountId, mailid, mailCache[mailid]
     return false
   window.setTimeout mailAccounts[accountId].getThread(accountId, mailid, showBody), 0  if accountId?
 
-#
-#		var mailElement = document.getElementById(mailid);
-#		if(mailElement != null) {
-#			var mailHeaderReadLink = document.getElementById(mailid + "_read-link");
-#			if(mailHeaderReadLink != null) {
-#				mailHeaderReadLink.href = "javascript:unreadThread('" + accountId + "', '" + mailid + "');";
-#				mailHeaderReadLink.innerHTML = i18n.get('unreadLink');
-#				mailHeaderReadLink.title = i18n.get('unreadLinkTitle');
-#			}
-#		}
 showBody = (accountid, mailid, mailbody) ->
-  
   #   showElement(mailid + "_less-link");
   #   hideElement(mailid + "_more-link");
   if mailbody?
@@ -135,14 +148,14 @@ showBody = (accountid, mailid, mailbody) ->
     fullscreenControl.find(".deleteLink").attr "title", i18n.get("deleteLinkTitle")
     fullscreenControl.find(".spamLink").attr "title", i18n.get("spamLinkTitle")
     fullscreenControl.find(".archiveLink").attr "title", i18n.get("archiveLinkTitle")
-    
+
     # Insert the full mail body and full screen controls
     fullscreenContent.empty()
     fullscreenContent.html mailbody
     fullscreenContainer.empty()
     fullscreenContainer.append fullscreenControl
     fullscreenContainer.append fullscreenContent
-    
+
     # Set event handlers
     fullscreenControl.find(".closeLink").click ->
       setTimeout hideBody(), 0
@@ -175,36 +188,27 @@ showBody = (accountid, mailid, mailbody) ->
       $(this).css "opacity", "1"
       starThread accountid, mailid
 
-    
+
     # Display full screen container
     fullscreenContainer.css "display", "block"
-    
+
     # Save this mail in the cache
     mailCache[mailid] = mailbody
-    
+
     # Toggle the size of the window
     expandWindow()
+
 hideBody = ->
-  
-  #   var mailSummaryElement = $('#' + mailid + "_summary");
-  #   var mail = allMail[mailid];
-  
-  #   //hideElement(mailid + "_reply-link");
-  #   hideElement(mailid + "_less-link");
-  #   showElement(mailid + "_more-link");
-  
   # Hide full screen
   $("#fullscreenContainer").css "display", "none"
-  
+
   # Toggle the size of the window
   contractWindow()
 
 # Hides a mail in the mailbox
 hideMail = (accountId, mailid, stayOpen) ->
   accountElement = $("#inbox_" + accountId)
-  
-  #   $('#' + mailid).slideUp('fast');
-  #   $('#' + mailid).removeClass('mail');
+
   $("#" + mailid).remove()
   unreadCount = accountElement.find(".mail").length
   if unreadCount is 0
@@ -218,51 +222,45 @@ hideMail = (accountId, mailid, stayOpen) ->
 showMail = (mailid) ->
   mailElement = document.getElementById(mailid)
   mailElement.style.display = "block"  if mailElement?
+
 replyTextKeyPress = (event, mailid) ->
-  
   # User pressed shift-enter inside textarea
   sendReply mailid  if event.shiftKey is 1 and event.keyCode is 13
+
 refreshMail = ->
   $.each mailAccounts, (i, account) ->
     account.refreshInbox ->
       renderAccount account
 
-
 openOptions = ->
   chrome.tabs.create url: "options.html"
+
 resizeWindow = ->
   isExpanded = $("html").width() isnt 500
   if isExpanded
     contractWindow()
   else
     expandWindow()
+
 expandWindow = ->
   previousHeight = $("body").height()
-  $("html").animate
-    width: [750, "swing"]
-  
-  #height: [500, 'swing']
-  , animationSpeed
+  $("html").animate {width: [750, "swing"]}, animationSpeed
   $(".account").slideUp()
+
 contractWindow = ->
-  $("html").animate
-    width: [500, "swing"]
-  
-  #height: [previousHeight, 'swing']
-  , animationSpeed
+  $("html").animate {width: [500, "swing"]}, animationSpeed
   $(".account").slideDown()
   previousHeight = 0
+
 renderMail = ->
-  
   # Clear previous content
   $("#content").empty()
-  
+
   # Loop through each account and render it on the page
   $.each mailAccounts, (i, account) ->
     account.id = i
     renderAccount account
 
-  
   # Add event handlers
   $(".inboxLink").click ->
     openInbox $(this).attr("accountId")
@@ -276,21 +274,21 @@ renderMail = ->
 renderAccount = (account) ->
   $("#content_" + account.id).remove()
   account.getNewAt()
-  
+
   # Render account
   account.unreadCount = account.getMail().length  if account.getMail()?
   accountHtml = accountTemplate(account, i18n)
-  
+
   # Add to page
   $(accountHtml).fadeIn("fast").appendTo "#content"
   inboxElement = $("#inbox_" + account.id)
   if account.getMail()?
     $.each account.getMail(), (j, mail) ->
       allMail[mail.id] = mail
-      
+
       # Render mail
       mailHtml = mailTemplate(mail, i18n)
-      
+
       # Add to account element
       $(mailHtml).fadeIn("fast").appendTo inboxElement
 
@@ -302,7 +300,6 @@ renderAccount = (account) ->
       else
         $(this).find("img").attr "src", "img/arrow_right.png"
 
-  
   # Hook up event handlers
   inboxElement.find(".readLink").click ->
     readThread account.id, $(this).attr("mailId")
@@ -332,23 +329,6 @@ renderAccount = (account) ->
     $(this).css "opacity", "1"
     starThread account.id, $(this).attr("mailId")
 
-backgroundPage = chrome.extension.getBackgroundPage()
-mailAccounts = backgroundPage.accounts
-mailCount = 0
-mailCache = new Array()
-allMail = undefined
-scrollbar = undefined
-unreadCount = 0
-allMail = new Array()
-$.each mailAccounts, (i, account) ->
-  unreadCount += account.getUnreadCount()
-
-previewSetting = localStorage["gc_preview_setting"]
-if previewSetting is "0"
-  openInbox 0
-else openInbox 0  if previewSetting is "1" and unreadCount is 0
-animationSpeed = 250
-previousHeight = undefined
 $(document).ready ->
   unreadCount = 0
   allMail = new Array()
@@ -357,8 +337,7 @@ $(document).ready ->
 
   backgroundPage.stopAnimateLoop()
   renderMail()
-  
+
   # Should probably use jQuery for this
   document.getElementById("refresh").setAttribute "title", i18n.get("refreshLinkTitle")
   document.getElementById("options").setAttribute "title", i18n.get("optionsLinkTitle")
-
